@@ -10,7 +10,7 @@ private:
   unique_ptr<float> tiempoMedicion;
 
 public:
-  MedicionBase();
+  MedicionBase(int t = 0);
   float getTiempo();
   virtual void imprimir() = 0;
   virtual ~MedicionBase() = default;
