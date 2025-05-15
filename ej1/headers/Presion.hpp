@@ -9,6 +9,9 @@ public:
   float presionEstatica;
   float presionDinamica;
   void imprimir() override;
+  void serializar(ofstream &) override;
+  void deserializar(ifstream &) override;
+
   Presion(float p, float q, float t);
 };
 

@@ -2,6 +2,7 @@
 #define POSICION_HPP
 
 #include "MedicionBase.hpp"
+#include <fstream>
 
 class Posicion : public MedicionBase
 {
@@ -10,6 +11,8 @@ public:
   float longitud;
   float altitud;
   void imprimir() override;
+  void serializar(ofstream &) override;
+  void deserializar(ifstream &) override;
   Posicion(float lat, float lon, float alt, float t);
 };
 

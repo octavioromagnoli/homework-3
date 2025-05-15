@@ -12,3 +12,17 @@ void Presion::imprimir()
   cout << "La presión estática es de " << presionEstatica << endl;
   cout << "La presión dinámica es de " << presionDinamica << endl;
 };
+
+void Presion::serializar(ofstream &out)
+{
+  MedicionBase::serializar(out);
+  out.write(reinterpret_cast<char *>(&presionEstatica), sizeof(float));
+  out.write(reinterpret_cast<char *>(&presionDinamica), sizeof(float));
+}
+
+void Presion::deserializar(ifstream &in)
+{
+  MedicionBase::deserializar(in);
+  in.read(reinterpret_cast<char*>(&presionEstatica), sizeof(float));
+  in.read(reinterpret_cast<char*>(&presionDinamica), sizeof(float));
+}
