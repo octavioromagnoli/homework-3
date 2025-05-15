@@ -9,6 +9,7 @@ public:
   float latitud;
   float longitud;
   float altitud;
+  void imprimir() override;
   Posicion(float lat, float lon, float alt, float t);
 };
 

@@ -8,6 +8,7 @@ class Presion : public MedicionBase
 public:
   float presionEstatica;
   float presionDinamica;
+  void imprimir() override;
   Presion(float p, float q, float t);
 };
 
