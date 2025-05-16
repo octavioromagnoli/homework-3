@@ -28,3 +28,13 @@ void Posicion::deserializar(ifstream &in)
   in.read(reinterpret_cast<char *>(&longitud), sizeof(float));
   in.read(reinterpret_cast<char *>(&altitud), sizeof(float));
 }
+
+Posicion& Posicion::operator=(const Posicion& otro) {
+    if (this != &otro) {
+        latitud = otro.latitud;
+        longitud = otro.longitud;
+        altitud = otro.altitud;
+        *tiempoMedicion = *otro.tiempoMedicion;
+    }
+    return *this;
+}

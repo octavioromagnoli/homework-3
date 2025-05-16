@@ -14,6 +14,7 @@ public:
   void serializar(ofstream &) override;
   void deserializar(ifstream &) override;
   Posicion(float lat, float lon, float alt, float t);
+  Posicion &operator=(const Posicion &otro);
 };
 
 #endif //  POSICION_HPP

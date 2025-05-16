@@ -11,7 +11,7 @@ public:
   void imprimir() override;
   void serializar(ofstream &) override;
   void deserializar(ifstream &) override;
-
+  Presion &operator=(const Presion &otro);
   Presion(float p, float q, float t);
 };
 

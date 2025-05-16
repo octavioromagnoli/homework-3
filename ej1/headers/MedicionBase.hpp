@@ -7,9 +7,8 @@ using namespace std;
 
 class MedicionBase : public IMediciones
 {
-private:
+protected:
   unique_ptr<float> tiempoMedicion;
-
 public:
   MedicionBase(float t = 0);
   float getTiempo();

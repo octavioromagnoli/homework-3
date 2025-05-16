@@ -26,3 +26,12 @@ void Presion::deserializar(ifstream &in)
   in.read(reinterpret_cast<char*>(&presionEstatica), sizeof(float));
   in.read(reinterpret_cast<char*>(&presionDinamica), sizeof(float));
 }
+
+Presion& Presion::operator=(const Presion& otro) {
+    if (this != &otro) {
+        presionEstatica = otro.presionEstatica;
+        presionDinamica = otro.presionDinamica;
+        *tiempoMedicion = *otro.tiempoMedicion;
+    }
+    return *this;
+}
