@@ -9,8 +9,8 @@ Presion::Presion(float p, float q, float t) : MedicionBase(t), presionEstatica(p
 void Presion::imprimir()
 {
   cout << "En tiempo " << getTiempo() << " las presiones son: " << endl;
-  cout << "La presión estática es de " << presionEstatica << endl;
-  cout << "La presión dinámica es de " << presionDinamica << endl;
+  cout << " | presión estática es de " << presionEstatica << endl;
+  cout << " | presión dinámica es de " << presionDinamica << endl;
 };
 
 void Presion::serializar(ofstream &out)

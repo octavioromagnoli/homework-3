@@ -10,7 +10,7 @@ Posicion::Posicion(float lat, float lon, float alt, float t) : MedicionBase(t), 
 void Posicion::imprimir()
 {
   cout << "En tiempo " << getTiempo() << " la posición es :" << endl
-       << "Latitud: " << latitud << ", Longitud: " << longitud << ", Altitud: " << altitud << endl;
+       << " | Latitud: " << latitud << ", Longitud: " << longitud << ", Altitud: " << altitud << endl;
 }
 
 void Posicion::serializar(ofstream &out)
