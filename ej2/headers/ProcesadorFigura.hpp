@@ -4,7 +4,10 @@
 #include "Circulo.hpp"
 #include "Elipse.hpp"
 #include "Rectangulo.hpp"
-constexpr float PI = 3.141592653589793;
+#include <iostream>
+using namespace std;
+
+constexpr float PI = 3.14159f;
 
 template <typename T>
 class ProcesadorFigura
@@ -22,7 +25,7 @@ class ProcesadorFigura<Circulo>
 public:
   float calcularArea(Circulo &circulo)
   {
-    return circulo.getRadio() * PI;
+    return circulo.getRadio() * circulo.getRadio() * PI;
   }
 };
 
