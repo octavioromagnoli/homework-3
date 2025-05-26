@@ -13,13 +13,6 @@ class vectGenerator
 private:
   vector<T> vectorResultante;
 
-public:
-  template <typename... Args>
-  void addValues(Args... argumentos)
-  {
-    (vectorResultante.push_back(argumentos), ...);
-  }
-
   string proccesDoubles(vector<double> vecDoubles)
   {
     ostringstream oss;
@@ -59,9 +52,10 @@ public:
   string proccessIntLists(vector<vector<int>> vectIntLists)
   {
     ostringstream oss;
+    oss << "[ " << endl;
     for (size_t i = 0; i < vectIntLists.size(); i++)
     {
-      oss << "[";
+      oss << "         " << "[";
       for (size_t j = 0; j < vectIntLists[i].size(); j++)
       {
 
@@ -82,8 +76,16 @@ public:
         oss << endl;
       }
     }
+    oss << "         ]";
     return oss.str();
   };
+
+public:
+  template <typename... Args>
+  void addValues(Args... argumentos)
+  {
+    (vectorResultante.push_back(argumentos), ...);
+  }
 
   string proccessData()
   {
@@ -98,7 +100,7 @@ public:
     {
       oss << proccessStrings(vectorResultante);
     }
-    
+
     if constexpr (is_same_v<T, vector<int>>)
     {
       oss << proccessIntLists(vectorResultante);
