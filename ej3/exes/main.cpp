@@ -17,10 +17,6 @@ int main()
   vector<int> vec1 = {1, 2};
   vector<int> vec2 = {3, 4};
   generaIntList.addValues(vec1, vec2);
-  // cout << generaIntList.proccessData();
-
-  // cout << generaDouble.proccessData() << endl;
-  // cout << generaString.proccessData() << endl;
   
   JSONbuilder builder;
   builder.assignTag(generaDouble,"vec_doubles");
