@@ -7,7 +7,6 @@
 #include <type_traits>
 using namespace std;
 
-// is_integral_v<T>
 template <typename T>
 class vectGenerator
 {
@@ -21,67 +20,88 @@ public:
     (vectorResultante.push_back(argumentos), ...);
   }
 
+  string proccesDoubles(vector<double> vecDoubles)
+  {
+    ostringstream oss;
+    oss << "[";
+    for (size_t i = 0; i < vecDoubles.size(); i++)
+    {
+      if (i != vecDoubles.size() - 1)
+      {
+        oss << vecDoubles[i] << ", ";
+      }
+      else
+      {
+        oss << vecDoubles[i] << "]";
+      }
+    }
+    return oss.str();
+  };
+
+  string proccessStrings(vector<string> vecStrings)
+  {
+    ostringstream oss;
+    oss << "[";
+    for (size_t i = 0; i < vecStrings.size(); i++)
+    {
+      if (i != vecStrings.size() - 1)
+      {
+        oss << "\"" << vecStrings[i] << "\", ";
+      }
+      else
+      {
+        oss << "\"" << vecStrings[i] << "\"]";
+      }
+    }
+    return oss.str();
+  };
+
+  string proccessIntLists(vector<vector<int>> vectIntLists)
+  {
+    ostringstream oss;
+    for (size_t i = 0; i < vectIntLists.size(); i++)
+    {
+      oss << "[";
+      for (size_t j = 0; j < vectIntLists[i].size(); j++)
+      {
+
+        oss << vectIntLists[i][j];
+
+        if (j != vectIntLists[i].size() - 1)
+        {
+          oss << ", ";
+        }
+      }
+      oss << "]";
+      if (i != vectIntLists.size() - 1)
+      {
+        oss << ", " << endl;
+      }
+      else
+      {
+        oss << endl;
+      }
+    }
+    return oss.str();
+  };
+
   string proccessData()
   {
     ostringstream oss;
 
     if constexpr (is_floating_point_v<T>)
     {
-      oss << "[";
-      for (size_t i = 0; i < vectorResultante.size(); i++)
-      {
-        if (i != vectorResultante.size() - 1)
-        {
-          oss << vectorResultante[i] << ", ";
-        }
-        else
-        {
-          oss << vectorResultante[i] << "]";
-        }
-      }
+      oss << proccesDoubles(vectorResultante);
     }
 
     if constexpr (is_same_v<T, string>)
     {
-      oss << "[";
-      for (size_t i = 0; i < vectorResultante.size(); i++)
-      {
-        if (i != vectorResultante.size() - 1)
-        {
-          oss << "\"" << vectorResultante[i] << "\", ";
-        }
-        else
-        {
-          oss << "\"" << vectorResultante[i] << "\"]";
-        }
-      }
+      oss << proccessStrings(vectorResultante);
     }
-
+    
     if constexpr (is_same_v<T, vector<int>>)
     {
-      for (size_t i = 0; i < vectorResultante.size(); i++)
-      {
-        oss << "[";
-        for (size_t j = 0; j < vectorResultante[i].size(); j++)
-        {
-
-          oss << vectorResultante[i][j];
-
-          if (j != vectorResultante[i].size() - 1)
-          {
-            oss << ", ";
-          }
-        }
-        oss << "]";
-        if (i != vectorResultante.size() - 1)
-        {
-          oss << ", " << endl;
-        }
-        else
-        {
-          oss << endl;
-        }
-      }
+      oss << proccessIntLists(vectorResultante);
     }
 
     return oss.str();
