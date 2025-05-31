@@ -11,6 +11,9 @@ private:
   vector<pair<string, string>> toLog;
 
 public:
+
+  JSONbuilder() = default;
+
   template <typename T>
   void assignTag(vectGenerator<T> &addedVector, string newTag)
   {

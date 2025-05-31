@@ -81,6 +81,9 @@ private:
   };
 
 public:
+
+  vectGenerator() = default;
+
   template <typename... Args>
   void addValues(Args... argumentos)
   {
